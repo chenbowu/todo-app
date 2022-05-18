@@ -1,14 +1,20 @@
 <script lang="ts">
-    import TodoListItem from './TodoListItem.vue'
-    export default {
-    name: "TodoList",
-    components: { TodoListItem }
+import TodoListItem from './TodoListItem.vue'
+export default {
+  name: "TodoList",
+  props: ['todos'],
+  components: { TodoListItem }
 }
 </script>
 
 <template>
     <div class="todo-list">
-        <todo-list-item v-for="n in 4" :key="n"></todo-list-item>
+        <todo-list-item
+          v-for="todo in todos"
+          :key="todo.id"
+          :todo-item="todo"
+          @change-state="todo.completed = $event.target.checked"
+        ></todo-list-item>
     </div>
 </template>
 

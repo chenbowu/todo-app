@@ -1,19 +1,23 @@
 <script lang="ts">
     export default {
-        name: 'TodoListItem'
+        name: 'TodoListItem',
+        props: ['todoItem'],
+        emits: ['change-state']
     }
 </script>
 
 <template>
-      <div class="todo-list">
-        <div class="todo-item">
-          <label>
-            <input type="checkbox">
-            Todo 1
-            <span class="check-button"></span>
-          </label>
-        </div>
-      </div>
+  <div class="todo-item" :class="{ done: todoItem.completed }">
+    <label>
+      <input
+        type="checkbox"
+        :checked="todoItem.completed"
+        @click="$emit('change-state', $event)"
+      />
+        {{ todoItem.content }}
+      <span class="check-button"></span>
+    </label>
+  </div>
 </template>
 
 <style scoped>
@@ -29,6 +33,11 @@
     display: flex;
     align-items: center;;
     user-select: none;
+  }
+
+  .todo-item.done label {
+    text-decoration: line-through;
+    font-style: italic;
   }
 
   .todo-item label span.check-button {
