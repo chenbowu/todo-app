@@ -4,15 +4,20 @@ export default {
   name: 'TodoAdd',
   props: ['tid'],
   emits: ['add-todo'],
-  setup(props, context) {
+  setup(props: any, context: any) {
+    return useEmitAddTodo(props.tid, context.emit)
+  }
+}
+
+function useEmitAddTodo(tid: any, emit: any) {
     const todoContent = ref('');
     const emitAddTodo = () => {
       const todo = {
-        id: props.tid,
+        id: tid,
         content: todoContent.value,
         completed: false
       }
-      context.emit('add-todo', todo)
+      emit('add-todo', todo)
       todoContent.value = ''
     }
 
@@ -21,7 +26,6 @@ export default {
       emitAddTodo
     }
   }
-}
 </script>
 
 <template>

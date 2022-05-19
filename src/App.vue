@@ -4,25 +4,16 @@ import { ref } from 'vue'
 import TodoAdd from './components/TodoAdd.vue'
 import TodoFilter from './components/TodoFilter.vue'
 import TodoList from './components/TodoList.vue'
+import useTodos from '@/composables/useTodos.js'
+import useFilteredTodo from '@/composables/useFilteredTodo.js'
 
 export default {
   name: 'App',
   components: { TodoAdd, TodoFilter, TodoList },
   setup() {
-    const todos = ref([]);
-    const addTodo = (todo) => todos.value.push(todo);
-    const filter = ref('all') 
-    const filteredTodo = computed(() => {
-      switch (filter.value) {
-        case 'done':
-          return todos.value.filter(todo => todo.completed)
-        case 'todo':
-          return todos.value.filter(todo => !todo.completed)
-        default:
-          return todos.value
-      }
-    })
-
+    useTodos();
+    const { todos, addTodo } = useTodos();
+    const { filter, filteredTodo } = useFilteredTodo(todos);
     return {
       todos,
       addTodo,
