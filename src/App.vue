@@ -1,9 +1,7 @@
 <script lang="ts">
-import { computed } from '@vue/reactivity'
-import { ref } from 'vue'
-import TodoAdd from './components/TodoAdd.vue'
-import TodoFilter from './components/TodoFilter.vue'
-import TodoList from './components/TodoList.vue'
+import TodoAdd from '@/components/TodoAdd.vue'
+import TodoFilter from '@/components/TodoFilter.vue'
+import TodoList from '@/components/TodoList.vue'
 import useTodos from '@/composables/useTodos.js'
 import useFilteredTodo from '@/composables/useFilteredTodo.js'
 
