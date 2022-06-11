@@ -28,7 +28,7 @@ export default {
       <h1>Vue Todo App</h1>
       <todo-add :tid="todos.length" @add-todo="addTodo"/>
       <todo-filter :selected="filter" @change-filter="filter = $event"/>
-      <todo-list :todos="filteredTodo" />
+      <todo-list :todos="filteredTodo"/>
     </div>
   </main>
 </template>
