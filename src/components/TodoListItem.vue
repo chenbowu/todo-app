@@ -44,7 +44,6 @@
     position: absolute;
     top: 0;
   }
-
   .todo-item label span.check-button::before, 
   .todo-item label span.check-button::after  {
     content: "";
