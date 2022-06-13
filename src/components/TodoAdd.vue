@@ -20,7 +20,6 @@ function useEmitAddTodo(tid: any, emit: any) {
       emit('add-todo', todo)
       todoContent.value = ''
     }
-
     return {
       todoContent,
       emitAddTodo
