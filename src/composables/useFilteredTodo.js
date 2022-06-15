@@ -12,6 +12,7 @@ export default function useFilteredTod(todos) {
           return todos.value
       }
     })
+    
     return {
         filter,
         filteredTodo
