@@ -59,6 +59,7 @@ export default {
     background: rgb(245, 246, 252);
     transition: height 2s;
   }
+
   h1 {
     margin: 24px 0;
     font-size: 28px;
