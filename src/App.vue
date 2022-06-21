@@ -60,7 +60,6 @@ export default {
     transition: height 2s;
   }
 
-
   h1 {
     margin: 24px 0;
     font-size: 28px;
